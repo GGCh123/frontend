@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <>Tullathorn Laowang</>
+    <h1><center>Tullathorn Laowang</center></h1>
   );
 }
