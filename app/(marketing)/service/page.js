@@ -1,8 +1,8 @@
-export default function Home() {
+export default function Service() {
   return (
     <>
     <h1 className="font-bold text-4xl text-blue-400">
-      <center>Home Page</center>
+      <center>Service Page</center>
       </h1>
     </>
   );

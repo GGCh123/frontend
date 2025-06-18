@@ -1,8 +1,8 @@
-export default function Home() {
+export default function Contact() {
   return (
     <>
     <h1 className="font-bold text-4xl text-blue-400">
-      <center>Home Page</center>
+      <center>Contact Page</center>
       </h1>
     </>
   );
