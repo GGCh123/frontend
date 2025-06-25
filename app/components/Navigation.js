@@ -1,62 +1,36 @@
-'use client';
-import Link from 'next/link';
-import { useState } from 'react';
+import Link from "next/link";
 
-export default function Navigation() {
-  const [menuOpen, setMenuOpen] = useState(false);
+export default function NavBar() {
 
   return (
-    <nav className="border-b border-gray-200 px-4 py-3">
-      <div className="flex items-center justify-between">
-        <div className="text-xl font-semibold">โลโก้ของคุณ</div>
+  <nav className="navbar navbar-expand-lg bg-body-tertiary">
+  <div className="container-fluid">
+    <a className="navbar-brand" href="/">Logo</a>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon" />
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/">หน้าแรก</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link active" href="/about">เกี่ยวกับ</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link active" href="/service" >บริการของเรา</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link active" href="/contact" >ติดต่อ</a>
+        </li>
+      </ul>
+      <form className="d-flex" role="search">
+        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button className="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
-        {/* ปุ่ม toggle บนมือถือ */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="sm:hidden text-2xl p-2 focus:outline-none"
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? '✖' : '☰'}
-        </button>
-
-        {/* เมนูสำหรับหน้าจอใหญ่ */}
-        <ul className="hidden sm:flex gap-6">
-          {navLinks.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="text-gray-800 hover:text-blue-600 transition duration-200"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* เมนูมือถือ */}
-      {menuOpen && (
-        <ul className="flex flex-col gap-3 mt-4 sm:hidden">
-          {navLinks.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className="block text-gray-800 hover:text-blue-600 transition duration-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </nav>
   );
 }
-
-const navLinks = [
-  { label: 'หน้าแรก', href: '/' },
-  { label: 'เกี่ยวกับ', href: '/about' },
-  { label: 'บริการของเรา', href: '/service' },
-  { label: 'ติดต่อ', href: '/contact' },
-];
